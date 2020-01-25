@@ -1,5 +1,7 @@
 sudo: required
-#language: node_js
+language: node_js
+node_js:
+  - "9"
 services:
   - docker
 env:
@@ -17,6 +19,9 @@ before_install:
   - gcloud container clusters get-credentials standard-cluster-1
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t 3stark/complex-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - echo "script"
 
 #script:
 #  - docker run -e CI=true 3stark/complex-test npm run test 
