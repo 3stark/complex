@@ -18,8 +18,8 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t 3stark/complex-test -f ./client/Dockerfile.dev ./client
 
-script:
-  - docker run -e CI=true 3stark/complex-test npm run test 
+#script:
+#  - docker run -e CI=true 3stark/complex-test npm run test 
   
 deploy:
   provider: script
