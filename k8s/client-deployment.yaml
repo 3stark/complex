@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: client-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       component: web
@@ -17,7 +17,7 @@ spec:
         image: 3stark/multi-client
         resources:
           limits:
-            memory: "128Mi"
-            cpu: "500m"
+            memory: "64Mi"
+            cpu: "10m"
         ports:
         - containerPort: 3000
